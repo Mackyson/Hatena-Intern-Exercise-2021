@@ -6,8 +6,11 @@ export function initializeFizzBuzz(
 ): void {
   console.debug("initializeFizzBuzz", list, button);
 	let tmp = fizzbuzz()
-	button.onclick = function(){console.log(tmp.next())}
-	//on"C"lickと記述して一時間溶かした。
+	button.onclick = function(){  //on"C"lickと記述して一時間溶かした。
+		let li: HTMLLIElement = document.createElement("li")
+		li.textContent = tmp.next().value
+		list.appendChild(li)
+	}
 }
 
 function* fizzbuzz(): IterableIterator<string>{
