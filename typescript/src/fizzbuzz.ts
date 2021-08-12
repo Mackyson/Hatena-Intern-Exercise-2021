@@ -5,11 +5,37 @@ export function initializeFizzBuzz(
   button: HTMLButtonElement
 ): void {
   console.debug("initializeFizzBuzz", list, button);
-	let tmp = fizzbuzz()
+	// let tmp = fizzbuzz()
+	let tmp:FizzBuzz = new FB()
 	button.onclick = function(){  //on"C"lickと記述して一時間溶かした。
 		let li: HTMLLIElement = document.createElement("li")
-		li.textContent = tmp.next().value
+		// li.textContent = tmp.next().value
+		li.textContent = tmp.next()
 		list.appendChild(li)
+	}
+}
+
+interface FizzBuzz {
+	next(): string;
+}
+
+class FB {
+	constructor(){
+		this.n=1
+	}
+	next(){
+		let tmp:string
+		if (this.n%3===0 && this.n%5===0){
+			tmp = "FizzBuzz"
+		} else if (this.n%3===0) {
+			tmp = "Fizz"
+		} else if (this.n%5===0) {
+			tmp =  "Buzz"
+		} else {
+			tmp = this.n.toString()
+		}
+		this.n++
+		return tmp
 	}
 }
 
