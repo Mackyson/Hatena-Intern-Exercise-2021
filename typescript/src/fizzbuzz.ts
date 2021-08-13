@@ -20,6 +20,7 @@ interface FizzBuzz {
 }
 
 class FB {
+	private n: number; //numberをintと記述して20分溶かした。
 	constructor(){
 		this.n=1
 	}
